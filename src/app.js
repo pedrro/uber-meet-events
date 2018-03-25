@@ -21,10 +21,10 @@ var todo = [];
 
 /* ROUTES */
 var events = router.route('/events');
-var todoRoute = router.route('/todo/:date');
+var event = router.route('/event');
 
 /* END-POINT */
-events.post(function(request, response) {
+event.post(function(request, response) {
   var eventValidation = Joi.object().keys({
         'id': Joi.string().guid(),
         'fromPlace': Joi.string(),
@@ -35,6 +35,7 @@ events.post(function(request, response) {
 
     Joi.validate(request.body, eventValidation, function(err, value) {
         if (err === null) {
+            console.log('insert event' + request.body);
             response.json(eventController.create(request.body));
         } else {
             response.status(400).send('errors on request: ' + err);
@@ -43,7 +44,8 @@ events.post(function(request, response) {
 });
 
 events.get(function(request, response) {
-   response.json(eventController.getAll(request.params.date));
+  console.log('return all events');
+  response.json(eventController.getAll(request.params.date));
 });
 
 app.use('/', router);

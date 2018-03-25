@@ -2,25 +2,25 @@ function EventController() {
   return this;
 }
 
-var todo = [];
+var events = [];
 
 EventController.prototype.create = function (body) {
-  todo.push(body);
+  events.push(body);
   return body;
 };
 
 EventController.prototype.getByDate = function (date) {
-  return todo.filter(function(obj) {
+  return events.filter(function(obj) {
     return obj.date === date;
   });
 };
 
 EventController.prototype.getSize = function() {
-  return todo.length;
+  return events.length;
 };
 
 EventController.prototype.getAll = function () {
-  return todo;
+  return events;
 };
 
 module.exports = EventController;
