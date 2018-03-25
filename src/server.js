@@ -1,5 +1,5 @@
 var app = require('./app.js');
 
-app.listen(8080, function() {
-  console.log('Insert events on port: ' + 3000);
+app.listen((process.env.PORT || 5000), function() {
+  console.log('Insert events on port: ' + process.env.PORT || 5000);
 });
