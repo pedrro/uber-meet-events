@@ -45,8 +45,8 @@ event.post(function(request, response) {
 
 events.get(function(request, response) {
   console.log('return all events');
-  response.json(eventController.getAll(request.params.date));
-});
+  response.json(eventController.getAll());
+});https://www.facebook.com/pedrro2
 
 app.use('/', router);
 
